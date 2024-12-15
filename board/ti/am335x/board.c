@@ -69,6 +69,7 @@ static struct ctrl_dev *cdev = (struct ctrl_dev *)CTRL_DEVICE_BASE;
 #ifdef CONFIG_TI_I2C_BOARD_DETECT
 void do_board_detect(void)
 {
+#if 0
 	enable_i2c0_pin_mux();
 #ifndef CONFIG_DM_I2C
 	i2c_init(CONFIG_SYS_OMAP24_I2C_SPEED, CONFIG_SYS_OMAP24_I2C_SLAVE);
@@ -76,6 +77,9 @@ void do_board_detect(void)
 	if (ti_i2c_eeprom_am_get(CONFIG_EEPROM_BUS_ADDRESS,
 				 CONFIG_EEPROM_CHIP_ADDRESS))
 		printf("ti_i2c_eeprom_init failed\n");
+#endif
+	printf("do_board_detect set to A335BNLT\n");
+	ti_i2c_eeprom_am_set("A335BNLT", "00A6");
 }
 #endif
 
