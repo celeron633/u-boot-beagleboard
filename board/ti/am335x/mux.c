@@ -397,10 +397,10 @@ void enable_board_pin_mux(void)
 	} else if (board_is_bone_lt()) {
 		if (board_is_bben()) {
 			/* SanCloud Beaglebone LT Enhanced pinmux */
-			configure_module_pin_mux(rgmii1_pin_mux);
+			/* configure_module_pin_mux(rgmii1_pin_mux); */
 		} else {
 			/* Beaglebone LT pinmux */
-			configure_module_pin_mux(mii1_pin_mux);
+			/* configure_module_pin_mux(mii1_pin_mux); */
 		}
 		/* Beaglebone LT pinmux */
 		configure_module_pin_mux(mmc0_pin_mux);
@@ -411,6 +411,7 @@ void enable_board_pin_mux(void)
 #else
 		configure_module_pin_mux(mmc1_pin_mux);
 #endif
+		configure_module_pin_mux(nand_pin_mux);
 	} else if (board_is_pb()) {
 		configure_module_pin_mux(mii1_pin_mux);
 		configure_module_pin_mux(mmc0_pin_mux);
